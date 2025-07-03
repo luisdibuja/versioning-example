@@ -65,14 +65,14 @@ The project includes three Maven profiles for different environments:
 
 ### Staging (`staging`)
 - **Port**: 8081
-- **Database**: PostgreSQL
+- **Database**: MySQL
 - **Logging**: INFO level, reduced verbosity
 - **Features**: Limited management endpoints
 - **Tests**: Enabled
 
 ### Production (`prod`)
 - **Port**: 8080
-- **Database**: PostgreSQL with environment variables
+- **Database**: MySQL with environment variables
 - **Logging**: WARN/ERROR level only
 - **Features**: Minimal management endpoints, security hardened
 - **Tests**: Skipped for faster builds
