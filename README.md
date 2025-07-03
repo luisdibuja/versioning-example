@@ -1,29 +1,50 @@
 # Versioning Example Project
 
-A simple Node.js project demonstrating version control concepts and semantic versioning.
+A Spring Boot REST API project demonstrating version control concepts and semantic versioning.
 
 ## Project Structure
 
 ```
 versioning_example/
-├── package.json
+├── pom.xml
 ├── README.md
 └── src/
-    ├── index.js
-    └── calculator.js
+    ├── main/
+    │   ├── java/com/example/calculator/
+    │   │   ├── VersioningExampleApplication.java
+    │   │   ├── controller/
+    │   │   │   └── CalculatorController.java
+    │   │   └── service/
+    │   │       └── CalculatorService.java
+    │   └── resources/
+    │       └── application.properties
+    └── test/
+        └── java/com/example/calculator/
 ```
 
 ## Features
 
-- Basic calculator functionality
-- Modular code structure
+- Spring Boot REST API
+- Calculator service with basic operations
+- RESTful endpoints for arithmetic operations
 - Semantic versioning examples
 
 ## Usage
 
 ```bash
-npm start
+# Build and run the application
+mvn spring-boot:run
+
+# The API will be available at http://localhost:8080
 ```
+
+## API Endpoints
+
+- `GET /api/calculator/add?a=10&b=5` - Addition
+- `GET /api/calculator/subtract?a=10&b=5` - Subtraction
+- `GET /api/calculator/multiply?a=10&b=5` - Multiplication
+- `GET /api/calculator/divide?a=10&b=5` - Division
+- `GET /api/calculator/version` - Get API version
 
 ## Version History
 
@@ -38,4 +59,4 @@ This project serves as an example for understanding:
 - Git workflow
 - Commit message conventions
 - Version numbering
-- Code organization
+- Spring Boot architecture
