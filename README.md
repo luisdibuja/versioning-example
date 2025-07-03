@@ -32,11 +32,50 @@ versioning_example/
 ## Usage
 
 ```bash
-# Build and run the application
+# Build and run with default profile (dev)
 mvn spring-boot:run
 
-# The API will be available at http://localhost:8080
+# Run with specific Maven profile
+mvn spring-boot:run -Pdev      # Development environment
+mvn spring-boot:run -Pstaging  # Staging environment
+mvn spring-boot:run -Pprod     # Production environment
+
+# Build with specific profile
+mvn clean package -Pdev
+mvn clean package -Pstaging
+mvn clean package -Pprod
+
+# The API will be available at:
+# - Development: http://localhost:8080
+# - Staging: http://localhost:8081
+# - Production: http://localhost:8080
 ```
+
+## Maven Profiles
+
+The project includes three Maven profiles for different environments:
+
+### Development (`dev`)
+- **Port**: 8080
+- **Database**: H2 in-memory database
+- **Logging**: DEBUG level for application, console output
+- **Features**: H2 console enabled, detailed SQL logging
+- **Tests**: Enabled
+- **Active by default**
+
+### Staging (`staging`)
+- **Port**: 8081
+- **Database**: PostgreSQL
+- **Logging**: INFO level, reduced verbosity
+- **Features**: Limited management endpoints
+- **Tests**: Enabled
+
+### Production (`prod`)
+- **Port**: 8080
+- **Database**: PostgreSQL with environment variables
+- **Logging**: WARN/ERROR level only
+- **Features**: Minimal management endpoints, security hardened
+- **Tests**: Skipped for faster builds
 
 ## API Endpoints
 
